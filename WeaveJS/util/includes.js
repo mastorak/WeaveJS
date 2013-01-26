@@ -1,0 +1,10 @@
+document.write('<script type="text/javascript" src="../WeaveJS/util/table.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/util/constants.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/graphics/background.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/graphics/sprite.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/graphics/actor.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/graphics/animation.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/controls/usercontrols.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/controls/aicontrols.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/graphics/entitymanager.js"></script>');
+document.write('<script type="text/javascript" src="../WeaveJS/graphics/collisionmanager.js"></script>');
