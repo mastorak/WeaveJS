@@ -1,13 +1,13 @@
 
 
-//setup the engine params
-var screen= new setupEngine(480, 320,'c');
+//create engine and its parameters 
+new WeaveJS(480, 320,'c');
+var gameLoop;
 
-var appLoop;
 
-
-var background=new Background(screen,"day");
-var actor=new Actor(screen.width/2-65/2,screen.height-128,true);
+//add entities
+var background=new Background("day");
+var actor=new Actor(weavejs.getScreenWidth()/2-65/2,weavejs.getScreenHeight()-128,true);
 
 var standingAnim=new Animation("images/smurf.png",1,0,0,128,128,0,0);
 var moveRightAnim=new Animation("images/smurf.png",4,0,0,128,128,0,0);
@@ -16,17 +16,14 @@ actor.addAnimation(Constants.standing(),standingAnim);
 actor.addAnimation(Constants.moveright(), moveRightAnim);
 actor.addAnimation(Constants.moveleft(), moveLeftAnim);
 
-//Start the main app loop
-var AppLoop = function(){  
-	
-background.draw();
-actor.draw();
 
-appLoop = setTimeout(AppLoop, 1000 / 50);  
+//Start the main game loop
+var startGameLoop = function(){
+
+	weavejs.getEntityManager().drawEntities();
+
+	gameLoop = setTimeout(startGameLoop, 1000 / 50);
 };
 
 
-
-
-//start the app	
-AppLoop();
+startGameLoop();

@@ -83,7 +83,7 @@ function UserControls(){
 	  
 	  //utility devel checks
 	  if(e.keyCode ==69){
-		  console.log("User:"+entityManager.hasUser() +" Entities:"+entityManager.getEntitiesSize()+" Solids:"+entityManager.getSolidsSize());
+		  console.log("User:"+weavejs.getEntityManager().hasUser() +" Entities:"+weavejs.getEntityManager().getEntitiesSize()+" Solids:"+weavejs.getEntityManager().getSolidsSize());
 	  }
 	  
 	};

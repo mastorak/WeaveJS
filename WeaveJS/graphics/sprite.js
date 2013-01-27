@@ -42,9 +42,10 @@ function Sprite (x,y){
 		this.calculateDraw();
 		
 		
-		ctx.drawImage(this.image,this.srcX+(this.frame*this.frameW),this.srcY,this.frameW,this.frameH,this.x,this.y,this.frameW,this.frameH);
+		weavejs.getCanvasContext().drawImage(this.image,this.srcX+(this.frame*this.frameW),this.srcY,this.frameW,this.frameH,this.x,this.y,this.frameW,this.frameH);
 		
-		//alert(this.image +" "+ this.srcX*this.frame +" "+ this.srcY +" "+ this.frameW +" "+ this.frameH +" "+ this.x +" "+ this.y +" "+ this.frameW +" "+ this.frameH);
+		//console.log(this.image +" "+ this.srcX*this.frame +" "+ this.srcY +" "+ this.frameW +" "+ this.frameH +" "+ this.x +" "+ this.y +" "+ this.frameW +" "+ this.frameH);
+		
 		
 	};
 	

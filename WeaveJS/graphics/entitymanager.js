@@ -17,7 +17,8 @@
 function EntityManager(){
 	
 	this.length=0;
-	this.user;
+	this.user=null;
+	this.backgournd=null;
 	this.entities=new Array();
 	this.solids=new Array();
 	
@@ -59,6 +60,31 @@ function EntityManager(){
 		else{
 			return false;
 		}
+	};
+	
+	/**
+	 * Set the screen background
+	 * @param background The background we want to set
+	 */
+	this.setBackground=function(background){
+		
+		this.background=background;
+	};
+	
+	/**
+	 * Get the background
+	 */
+	this.getBackground=function(){
+		
+		return this.background;
+	};
+	
+	/**
+	 * Delete the background from the entity manager
+	 */
+	this.clearBackground=function(){
+		
+		this.background=null;
 	};
 	
 	/**
@@ -135,6 +161,34 @@ function EntityManager(){
 		this.entities={};
 		this.solids={};
 		this.user=null;
+		this.background=null;
+	};
+	
+	/**
+	 * Draw all the element in the Entity Manager
+	 */
+	this.drawEntities=function(){
+		
+		if(this.background!=null){
+			this.background.draw();
+		}
+			
+		if(this.user!=null){
+			this.user.draw();
+		}
+		
+		if(this.entities!=null && this.entities.length>0){
+			for(var i=0; i<this.entities.length; i++){
+				entities[i].draw();
+			}
+		}
+		
+		if(this.solids!=null && this.solids.length>0){
+			for(var i=0; i<this.solids.length; i++){
+				solids[i].draw();
+			}
+		}
+		
 	};
 	
 	

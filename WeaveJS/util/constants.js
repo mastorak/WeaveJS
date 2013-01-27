@@ -50,3 +50,5 @@ function Constants(){}
 	Constants.collisionDown=function(){
 		return 'collisiondown';
 	};
+	
+	

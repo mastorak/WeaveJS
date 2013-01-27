@@ -1,35 +1,80 @@
 /*
- * WeaveJS
- * @author Konstantinos Mastorakis
- */
+* WeaveJS
+* @author Konstantinos Mastorakis
+*/
 
 
 
-//TODO encapsulate screen information(width, height, etc) on a variable in order to use the created engine object for other purposes such as incorporate game loop
+//TODO incorporate game loop functionality in the weavejs object considering about how developer would add extra functionality or possible sequence of events in the loop
  
 
 //include libraries
 document.write('<script type="text/javascript" src="../WeaveJS/util/includes.js"></script>');
 
-var ctx;
-var entityManager;
 
-function setupEngine(width,height,element){
+
+var weavejs;
+
+
+function WeaveJS(width,height,element){
+
+	weavejs=this;
 	
-	this.width=width;
-	this.height=height;
+	//get the canvas element and set the context
+	c = document.getElementById(element),
+	ctx = c.getContext('2d');
+	
+	//set the screen params
+	c.width = width;
+	c.height = height;
 	
 	
-//get the canvas element and set the context
-c = document.getElementById(element),   
-ctx = c.getContext('2d');  
+	entityManager=new EntityManager();
+		
+	
+	/**
+	 * Get the Entity Manager
+	 */
+	this.getEntityManager=function(){
+		return entityManager;
+	};
+	
+	/**
+	 * Get the screen width
+	 */
+	this.getScreenWidth=function(){
+		
+		return width;
+	};
+	
+	/**
+	 * Get the screen height
+	 */
+	this.getScreenHeight=function(){
+		
+		return height;
+	};
+	
+	/**
+	 * Get the canvas 
+	 */
+	this.getCanvas=function(){
+		return c;
+	};
+	
+	/**
+	 * Get the canvas context
+	 */
+	this.getCanvasContext=function(){
+		return ctx;
+	};
 
-//set the screen params
-c.width = width;  
-c.height = height;  
-
-
-entityManager=new EntityManager();
 
 
 };
+
+
+
+
+
+

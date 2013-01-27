@@ -25,10 +25,10 @@ function Actor(x,y,isUser){
 	}
 	
 	if(isUser==true){
-		entityManager.setUser(this);
+		weavejs.getEntityManager().setUser(this);
 	}
 	else{
-		entityManager.addEntity(this);
+		weavejs.getEntityManager().addEntity(this);
 	}
 	
 }

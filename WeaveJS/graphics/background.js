@@ -4,35 +4,33 @@
  */
 
 
-function Background(screen,type){
+function Background(type){
 		
+		
+	width=weavejs.getScreenWidth();
+	height=weavejs.getScreenHeight();
 	
-	this.screen=screen;
-	this.type=type;
-	
-	this.width=screen.width;
-	this.height=screen.height;
-	
-	if(this.type=="day")
-		this.color="#d0e7f9";
-	if(this.type=="night")
-		this.color="#000000";
+	if(type=="day")
+		color="#d0e7f9";
+	if(type=="night")
+		color="#000000";
 	
 	
+	weavejs.getEntityManager().setBackground(this);
 	
 	this.draw =function() {
 		
 			//assign the color  
-			ctx.fillStyle = this.color; 
+			weavejs.getCanvasContext().fillStyle = color; 
 			
 			//start drawing
-			ctx.beginPath();  
+			weavejs.getCanvasContext().beginPath();  
 			//select a rectangle for the whole screen
-			ctx.rect(0, 0, this.width, this.height);  
+			weavejs.getCanvasContext().rect(0, 0, width, height);  
 			//stop drawing
-			ctx.closePath();  
+			weavejs.getCanvasContext().closePath();  
 			//fill with the color we assigned
-			ctx.fill();  			
+			weavejs.getCanvasContext().fill();  			
 			
 			
 		
