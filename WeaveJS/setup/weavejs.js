@@ -29,15 +29,38 @@ function WeaveJS(width,height,element){
 	c.height = height;
 	
 	
+	//create and off screen canvas for checks and transformations
+	offCanvas= document.createElement("canvas");
+	offCanvas.width = width;
+	offCanvas.height = height;
+    offCanvasContext=offCanvas.getContext('2d');
+    //offCanvasContext.globalAlpha = 0.1;
+	
+   
+    
+    
 	entityManager=new EntityManager();
-		
+	collisionManager= new CollisionManager(Constants.defaultCollision);
+	
+	
+	
 	
 	/**
 	 * Get the Entity Manager
 	 */
 	this.getEntityManager=function(){
+		
 		return entityManager;
 	};
+	
+	/**
+	 * Get the Collision Manager
+	 */
+	this.getCollisionManager=function(){
+		
+		return collisionManager;
+	};
+	
 	
 	/**
 	 * Get the screen width
@@ -70,6 +93,20 @@ function WeaveJS(width,height,element){
 	};
 
 
+	/**
+	 * get the off screen canvas
+	 */
+	this.getOffCanvas=function(){
+		return offCanvas;
+	};
+	
+	/**
+	 * Get the off screen canvas context
+	 */
+	this.getOffCanvasContext=function(){
+		return offCanvasContext;
+	};
+	
 
 };
 

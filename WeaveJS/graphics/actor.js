@@ -43,31 +43,41 @@ Actor.prototype.constructor=Actor;
  */
 Actor.prototype.calculateMovement=function(){
 	
-	if(this.controls.getMoveRight()==true){
-		this.x+=5;		
-		this.direction=Constants.moveright();
-	}
-	if(this.controls.getMoveLeft()==true){
-		this.x-=5;
-		this.direction=Constants.moveleft();
-	}
-	if(this.controls.getMoveUp()==true){
-		this.y-=5;
-		
-	}
-	if(this.controls.getMoveDown()==true){
-		this.y+=5;
-		
-	}
+	if(this.isUser){//TODO implement missing methods from ai control and wire each control to each entity
 	
-	if(this.controls.getMoveRight()==false && this.controls.getMoveLeft()==false){
-	//	this.x=this.getX();
-		this.direction=Constants.standing();
+		if(this.controls.getMoveRight()==true){
+			this.x+=5;		
+			this.direction=Constants.moveright();
+		}
+		if(this.controls.getMoveLeft()==true){
+			this.x-=5;
+			this.direction=Constants.moveleft();
+		}
+		if(this.controls.getMoveUp()==true){
+			this.y-=5;
+			
+		}
+		if(this.controls.getMoveDown()==true){
+			this.y+=5;
+			
+		}
 		
-	}
+		if(this.controls.getMoveRight()==false && this.controls.getMoveLeft()==false){
+		//	this.x=this.getX();
+			this.direction=Constants.standing();
+			
+		}
+		
+		if(this.controls.getMoveUp()==false && this.controls.getMoveDown()==false){
+		//	this.y=this.getY();
+			
+		}
 	
-	if(this.controls.getMoveUp()==false && this.controls.getMoveDown()==false){
-	//	this.y=this.getY();
+		userLeft=this.x;
+		userRight=this.x+this.frameW;
+		userTop=this.y;
+		userBottom=this.y+this.frameH;
+		
 		
 	}
 };

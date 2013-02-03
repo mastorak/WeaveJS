@@ -17,10 +17,14 @@ actor.addAnimation(Constants.moveright(), moveRightAnim);
 actor.addAnimation(Constants.moveleft(), moveLeftAnim);
 
 
+var actor2=new Actor(weavejs.getScreenWidth()-100,weavejs.getScreenHeight()-128,false);
+actor2.addAnimation(Constants.standing(),standingAnim);
+
 //Start the main game loop
 var startGameLoop = function(){
 
 	weavejs.getEntityManager().drawEntities();
+	weavejs.getCollisionManager().checkCollision();
 
 	gameLoop = setTimeout(startGameLoop, 1000 / 50);
 };

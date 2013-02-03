@@ -165,10 +165,15 @@ function EntityManager(){
 	};
 	
 	/**
-	 * Draw all the element in the Entity Manager
+	 * Draw all the elements in the Entity Manager
 	 */
 	this.drawEntities=function(){
 		
+		//first clear the canvas
+		weavejs.getCanvasContext().clearRect(0, 0, weavejs.getScreenWidth(), weavejs.getScreenHeight());
+		weavejs.getOffCanvasContext().clearRect(0, 0, weavejs.getScreenWidth(), weavejs.getScreenHeight());
+		
+		//now draw the entities
 		if(this.background!=null){
 			this.background.draw();
 		}
@@ -179,13 +184,13 @@ function EntityManager(){
 		
 		if(this.entities!=null && this.entities.length>0){
 			for(var i=0; i<this.entities.length; i++){
-				entities[i].draw();
+				this.entities[i].draw();
 			}
 		}
 		
 		if(this.solids!=null && this.solids.length>0){
 			for(var i=0; i<this.solids.length; i++){
-				solids[i].draw();
+				this.solids[i].draw();
 			}
 		}
 		

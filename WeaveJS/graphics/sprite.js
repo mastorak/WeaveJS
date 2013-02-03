@@ -28,7 +28,7 @@ function Sprite (x,y){
 	this.lastUpdateTime = 0;
 	this.timeIncrement = 0;
 	this.msPerFrame = 100;
-	
+	this.spriteData;
 }	
 	
 	/**
@@ -42,9 +42,13 @@ function Sprite (x,y){
 		this.calculateDraw();
 		
 		
-		weavejs.getCanvasContext().drawImage(this.image,this.srcX+(this.frame*this.frameW),this.srcY,this.frameW,this.frameH,this.x,this.y,this.frameW,this.frameH);
+	//   weavejs.getOffCanvasContext().globalCompositeOperation = 'copy';
 		
-		//console.log(this.image +" "+ this.srcX*this.frame +" "+ this.srcY +" "+ this.frameW +" "+ this.frameH +" "+ this.x +" "+ this.y +" "+ this.frameW +" "+ this.frameH);
+		//first draw in the offscreen canvas
+		weavejs.getOffCanvasContext().drawImage(this.image,this.srcX+(this.frame*this.frameW),this.srcY,this.frameW,this.frameH,this.x,this.y,this.frameW,this.frameH);
+		
+		//write the offscreen canvas data to the normal canvas
+		weavejs.getCanvasContext().drawImage(offCanvas,0,0);
 		
 		
 	};
